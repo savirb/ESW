@@ -1,0 +1,22 @@
+!
+! WSA and WSA2 model parameters.
+!
+&wsa
+ wsa_vslow=250.
+ wsa_vfast=680.
+ wsa_vmax=800.
+ wsa_ef_power=.33333333333333
+ wsa_chd_mult_fac=.8
+ wsa_chd_arg_fac=.25
+ wsa_chd_power=4.
+ wsa_c5=3.
+/
+!
+! PSI DCHB model parameters.
+!
+&psi
+ psi_vslow=250.
+ psi_vfast=650.
+ psi_eps=.05
+ psi_width=.025
+/

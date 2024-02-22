@@ -1,0 +1,16 @@
+!
+! WSA model parameters
+!
+&wsa
+ wsa_vslow=250.0
+ wsa_vfast=680.0
+ wsa_vmax=800.0
+ wsa_ef_power=0.33333333333333
+ wsa_chd_mult_fac=0.80
+ wsa_chd_arg_fac=0.25
+ wsa_chd_power=4.00
+/
+&rhot
+ rhofast=152.00
+ tfast=1.85e6
+/

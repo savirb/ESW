@@ -1,0 +1,13 @@
+!
+! Predictive Science Inc. ad hoc model parameters
+!
+&psi
+ psi_vslow=250.0
+ psi_vfast=650.0
+ psi_eps=0.050
+ psi_width=0.025
+/
+&rhot
+ rhofast=152.00
+ tfast=1.85e6
+/
