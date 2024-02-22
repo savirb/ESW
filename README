@@ -1,0 +1,52 @@
+==========================================================
+TASK:  Create a python version of "getv" called "swim.py".
+==========================================================
+
+Details:
+
+ - Ignore the "interp2d" for now.
+   Assume the input hdf5 data sets are all on the same grid,
+   which is the same grid as the output hdf5 files.
+
+ - No need for the huge amount of error-checking in getv.
+   Simply check that all input files are on the same grid for now.
+
+ - In getv, it uses a "namelist" to read in the parameters.
+   The template for this file is in "src" and is called "params.dat".
+   In swim.py, all of these parameters should be optional flag inputs to the command line
+   using argparse, with the defaults being the values in params.dat.
+
+ - getv uses a complicated file i/o structure.  This is not needed in python,
+   as you can just use the simple "write_2d" routine in psihdf.py.
+
+ - The input hdf5 files are located in the input_h5_files folder.
+   I have also put the input "getv.dat" namelist files for running the code in three ways: psi, wsa, and wsa2.
+
+ - The command line that was used to generate the output files for the three runs were:
+ 
+    psi:    getv -v -model psi  -params getv.dat -chd ../ch_distance_r1.h5                 vr_psi.h5 rho_psi.h5 t_psi.h5 
+    wsa:    getv -v -model wsa  -params getv.dat -chd ../ch_distance_r1.h5 -ef ../ef_r1.h5 vr_wsa.h5 rho_wsa.h5 t_wsa.h5 
+    wsa2:   getv -v -model wsa2 -params getv.dat -chd ../ch_distance_r1.h5 -ef ../ef_r1.h5 vr_wsa2.h5 rho_wsa2.h5 t_wsa2.h5
+ 
+ - The output hdf5 files for each run are in the "output_h5_files/" folder.      
+      
+ - You can use the "diffh.py" script to compare the hdf5 outputs from your "swim.py" to those from "getv" that are provided in the "output_h5_files" folder.
+
+ - For background, I have included a soon-to-be released paper using WSA models (what getv generates).  The formula that is being computed for model "wsa2" in getv is shown in Equation 1. 
+ 
+ - The python_scripts/ folder has the diffh.py comparison script and a sample script that simply reads in a 2D hdf5 file (psi_data_reader_2d.py) - both of these use the psihdf.py script to do hdf5 read and writes.
+   The swim.py script you write shoudl be in the same style as psi_data_reader_2d.py.
+   
+   The completed swim.py should be able to be run as (for example):
+   
+   swim.py -dchb ../ch_distance_r1.h5 -expfac ../ef_r1.h5 -model wsa2 -wsa_vslow 285.0 -wsa_vfast 625.0 -wsa_vmax 1000000.0 -wsa_ef_power 0.2222222222222222 -wsa_chd_mult_fac 0.8 -wsa_chd_arg_fac 0.5 -wsa_chd_power 2.0 -wsa_c5 3.0 -rhofast 152.0 -tfast 1.85e6 
+   
+   This should output vr.h5, rho.h5 and t.h5
+   
+   (note I changed the name of -chd to -dchb and -ef to -expfac)
+
+
+      
+   
+   
+
